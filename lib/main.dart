@@ -40,6 +40,12 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                const Icon(
+                  Icons.movie_creation, // Ícono de película
+                  size: 80,
+                  color: Colors.white,
+                ),
+                const SizedBox(height: 20),
                 const Text(
                   '¡Bienvenido al Catálogo de Películas!',
                   style: TextStyle(
@@ -64,7 +70,8 @@ class HomeScreen extends StatelessWidget {
                     // Navegar a la lista de películas
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const MovieListScreen()),
+                      MaterialPageRoute(
+                          builder: (context) => const MovieListScreen()),
                     );
                   },
                   child: const Text('Explorar Películas'),
