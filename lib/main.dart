@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'movie_list_screen.dart'; // Importa la pantalla MovieListScreen
 
 void main() {
   runApp(const MovieCatalogApp());
@@ -80,22 +81,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class MovieListScreen extends StatelessWidget {
-  const MovieListScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Lista de Películas'),
-      ),
-      body: const Center(
-        child: Text('Aquí irá la lista de películas'),
       ),
     );
   }
