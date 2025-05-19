@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'movie_list_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -20,12 +19,9 @@ class _LoginScreenState extends State<LoginScreen> {
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
-      // Navegar a la siguiente pantalla después del inicio de sesión exitoso
+      // Navegar a la pantalla de catálogo después del inicio de sesión exitoso
       if (context.mounted) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const MovieListScreen()), // Reemplaza con la pantalla principal
-        );
+        Navigator.pushReplacementNamed(context, '/catalog');
       }
     } on FirebaseAuthException catch (e) {
       setState(() {
@@ -80,6 +76,13 @@ class _LoginScreenState extends State<LoginScreen> {
             Text(
               _errorMessage,
               style: const TextStyle(color: Colors.red),
+            ),
+            const SizedBox(height: 20),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/register');
+              },
+              child: const Text('¿No tienes cuenta? Regístrate aquí.', style: TextStyle(color: Colors.blue)),
             ),
           ],
         ),
